@@ -10,7 +10,13 @@
 <body>
 	<div id="root"></div>
 	<script type="text/babel">
-		const element = <h1>Hello World</h1>
+		const str = "Hello World"
+		const style = {
+			color: "red",
+			textAlign: "center"
+	    }
+
+		const element = <h1 title={str} style={style}>{str}</h1>
 		const root = document.getElementById('root')
 		ReactDOM.render(element, root);
 	</script>
