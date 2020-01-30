@@ -8,23 +8,34 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 </head>
 <body>
-	dom 에서 변경되는 부분만 바뀜
-	<div id="virtual-dom"></div>
-
-	dom 전체가 바뀜
-	<div id="dom"></div>
+	<div id="like_button_container"></div>
 	<script type="text/babel">
-		const virtualDom = document.getElementById('virtual-dom')
-		const dom = document.getElementById('dom')
-		setInterval(() => {
-			const date = new Date()
-			const hour = date.getHours()
-			const min = date.getMinutes()
-			const sec = date.getSeconds()
-			const element = <h1>{hour}:{min}:{sec}</h1>
-			ReactDOM.render(element, virtualDom)
-			dom.innerHTML = `<h1>${hour}:${min}:${sec}</h1>`
-		}, 1000)
+	const e = React.createElement;
+
+	class LikeButton extends React.Component {
+		constructor(props) {
+			super(props);
+			this.state = { liked: false };
+		}
+
+		render() {
+			if (this.state.liked) {
+				return 'You liked this.';
+			}
+
+			// return e(
+			// 	'button',
+			// 	{ onClick: () => this.setState({ liked: true }) },
+			// 	'Like'
+			// );
+
+			//JSX 문법 적용 , babel 필요
+			return <button onClick={() => this.setState({ liked: true })}>Like</button>
+		}
+	}
+
+	const domContainer = document.querySelector('#like_button_container');
+	ReactDOM.render(e(LikeButton), domContainer);
 	</script>
 </body>
 </html>
