@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import store from '../store'
 
-export default class DisplayNumber extends Component {
+export default class extends Component {
   render() {
     return (
       <div>
