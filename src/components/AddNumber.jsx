@@ -10,7 +10,7 @@ export default class AddNumber extends Component {
           type="button"
           value="+"
           onClick={function(e) {
-            store.dispatch({type: 'INCREMENT', size: this.state.size})
+            this.props.onClick(this.state.size);
           }.bind(this)}
         ></input>
         <input
