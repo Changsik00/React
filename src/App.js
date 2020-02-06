@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import AddNumberRoot from './components/AddNumberRoot';
+import DisplayNumberRoot from './components/DisplayNumberRoot';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header"> Hello world</header>
+      <AddNumberRoot></AddNumberRoot>
+      <DisplayNumberRoot></DisplayNumberRoot>
     </div>
   );
 }
-
 export default App;
